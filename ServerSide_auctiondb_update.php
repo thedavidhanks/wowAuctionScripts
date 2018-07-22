@@ -122,12 +122,8 @@ if (!$conn2) {
 
 //Create a logfile for each day.  If today's log exists write to it, if not, create a new one.
 // 20160106_log.txt would be the log file for Jan 5, 2016
-$log_dir = "logs/";
-$logfilename=date('Ymd')."_log.txt";
-if (file_exists($log_dir.$logfilename)) {$log_action = "a";}
-else{$log_action = "w";}
-$logfile = fopen($log_dir.$logfilename,$log_action) or die ("Unable to Open file!");
-$log_entry="---------------------------------------------------------------------------------------------".PHP_EOL."LOG STARTED $updated_time".PHP_EOL.PHP_EOL;
+$logfile = startLog();
+$log_entry="ServerSide_auctiondb_update.php---------------------------------------------------------------------------".PHP_EOL."LOG STARTED $script_start_date".PHP_EOL.PHP_EOL;
 fwrite($logfile,$log_entry);
 
 /*******START PreSummary******/
@@ -629,5 +625,7 @@ echo $summary;
 
 //OUTPUT a summary to the logfile and close it.
 fwrite($logfile,$summary);
+$logEnd = "Log End-------------------------------------".PHP_EOL.PHP_EOL;
+fwrite($logfile,$logEnd);
 fclose($logfile);
 ?>

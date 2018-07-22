@@ -52,5 +52,14 @@ function copper_to_gold($c){
 	$g=$c/10000;
 	return $g; 
 }
-
+function startLog(){
+	//Create a logfile for each day.  If today's log exists write to it, if not, create a new one.
+	// 20160106_log.txt would be the log file for Jan 5, 2016
+	$log_dir = "logs/";
+	$logfilename=date('Ymd')."_log.txt";
+	if (file_exists($log_dir.$logfilename)) {$log_action = "a";}
+	else{$log_action = "w";}
+	$logfile = fopen($log_dir.$logfilename,$log_action) or die ("Unable to Open file!");
+	return $logfile;
+}
 ?>
