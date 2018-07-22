@@ -78,7 +78,7 @@ $olderThanSec = $olderThanHrs*60*60; //seconds
 
 /***END CONFIG****/
 
-
+//Initiate variables
 $added_aucs=0;
 $updated_aucs=0;
 $ignored_aucs=0;
@@ -88,6 +88,7 @@ $aucs_earlier=0; //auctions updated with earlier records
 $aucs_later=0;  //auctions updated with later records
 $files_ignore=0; //the file has been processed in the database already
 $files_tooOld=0; //the file is older than the specified $olderThanHrs
+$total_auc_modded = 0;
 $updated_time = date("Y-m-d H:i:s");
 $summary="";
 $summary_processed="";
@@ -96,8 +97,6 @@ $summary_tooOld ="";
 $error_log="";
 $cli_log="";
  
-
-
 //AH_dumps is where all the downloaded json AH files can be found
 $dir_AH = "AH_dumps";
 $dir_month = date('m');  // date('m',mktime(0,0,0,1,date("d"),date("Y"))); //Test January (01)
@@ -112,14 +111,7 @@ if($dir_month == "01"){
 	$dir_lastMonth = "{$dir_AH}/{$dir_year}/{$dir_lastMonth}";
 }
 
-if(!is_dir($dir_thisMonth)){
-	if(!is_dir("{$dir_AH}/{$dir_year}")){
-		mkdir("{$dir_AH}/{$dir_year}");
-		if(!$ProductionMode){echo "Another year of auctions...".PHP_EOL;}
-	}
-	mkdir($dir_thisMonth);
-	if(!$ProductionMode){echo "New Month! Created folder: {$dir_thisMonth}".PHP_EOL;}
-}
+//Removed create directories
 
 // Create connection
 $conn2 = mysqli_connect($servername, $username, $password, $dbname);
