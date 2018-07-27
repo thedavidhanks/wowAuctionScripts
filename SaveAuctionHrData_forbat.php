@@ -1,5 +1,5 @@
 <?php
-$script_start_time = microtime(TRUE);
+$script_start_date = date('r');
 //DELETE?  header('Content-type: text/html; charset=utf-8');
 include('include/functions.php'); 
 
@@ -31,7 +31,7 @@ if(!is_dir($dir_thisMonth)){
 //LOG FILE
 
 $logfile = startLog();
-$log_entry="SaveAuctionHrData_forbat.php---------------------------------------------------------------------------".PHP_EOL."LOG STARTED $script_start_time".PHP_EOL.PHP_EOL;
+$log_entry="SaveAuctionHrData_forbat.php---------------------------------------------------------------------------".PHP_EOL."LOG STARTED $script_start_date".PHP_EOL.PHP_EOL;
 fwrite($logfile,$log_entry);
 
 $json_wow_api_url = file_get_contents('https://'.$RegionName.'.api.battle.net/'.$GameName.'/auction/data/'.$RealmName.'?locale='.$LocaleName.'&apikey='.$APIkey.'');

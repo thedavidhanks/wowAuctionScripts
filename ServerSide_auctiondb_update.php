@@ -356,7 +356,7 @@ foreach([$dir_lastMonth,$dir_thisMonth] as $dir){
 					}
 						if( $num == $auc_total_currentfile){  //$num % 1000 == 0 || $num == $auc_total_currentfile){
 							$log_update = "$num auctions processing - ADDING:$file_added_aucs; UPDATING WITH LATER:$file_later_aucs; UPDATING WITH EARLIER:$file_earlier_aucs; IGNORING:$file_ignored_aucs".PHP_EOL;
-							echo PHP_EOL.PHP_EOL.$log_update;
+							echo $log_update;
 							fwrite($logfile,$log_update);
 						}
 						
