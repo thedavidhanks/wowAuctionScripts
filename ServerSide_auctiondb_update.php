@@ -310,7 +310,7 @@ foreach([$dir_lastMonth,$dir_thisMonth] as $dir){
 									}
 									else{ //I don't expect this else will be seen since all possibilities are covered.
 										//echo "timestamp=$entry_timestamp not earlier than first seen ($db_firstseen_timestamp) nor later than last seen($db_lastseen_timestamp).  No action taken".PHP_EOL;  //testing purposes
-										echo "Ignored. ..for some reason".PHP_EOL;
+										//echo "Ignored. ..for some reason".PHP_EOL;
 										$file_ignored_aucs+=1;	
 									}
 									
