@@ -4,7 +4,7 @@ $script_start_date = date('r');
 include('include/functions.php'); 
 
 //CONFIGURATION//
-$APIkey = 'ywqeka7jd3h6y6m9xad88zy8zgquwupf';
+$APIkey = ***;
 $RegionName = 'us';
 $LocaleName = 'en_US';
 $GameName = 'wow';
